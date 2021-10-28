@@ -19,6 +19,8 @@ public struct EasyBeta {
 public extension EasyBeta {
     
     static func configTestTool() {
+        EasyApp.isBeta = true
+        
         FLEXManager.shared.isNetworkDebuggingEnabled = true
         PerformanceMonitor.shared().performanceViewConfigurator.options = .all
         PerformanceMonitor.shared().performanceViewConfigurator.style = .light
@@ -32,7 +34,19 @@ public extension EasyBeta {
     
 }
 
-extension EasySession {
+public extension EasyApp {
+    
+    static func configCheckPgyer(api_key: String , shortcutUrl: String, headerImage: UIImage? = nil, delay: TimeInterval = 3, isWillEnterForegroundCheck: Bool = true) {
+        EasyCheck.configPgyerBeta(api_key: api_key, shortcutUrl: shortcutUrl, headerImage: headerImage, delay: delay, isWillEnterForegroundCheck: isWillEnterForegroundCheck)
+    }
+    
+    static func configTestTool() {
+        EasyBeta.configTestTool()
+    }
+    
+}
+
+public extension EasySession {
     
     func addToShowBaseURL() {
         guard self.config.url.global == nil else {

@@ -8,6 +8,21 @@
 import UIKit
 import Easy
 
+public extension EasySession {
+    
+    func showChangeBaseURL(_ handler: @escaping (String) -> Void) {
+        let vc = EasySessionViewController()
+        vc.config = config
+        let popupView = EasyPopupView(vc, height: .screenHeight * 0.38, transition: .bottom)
+        vc.popupView = popupView
+        vc.successHandler = handler
+        popupView.showWithBottom(showHandler: nil) {
+            vc.popupView = nil
+        }
+    }
+    
+}
+
 class EasySessionViewController: EasyViewController, EasyTableListProtocol {
     
     typealias EasyTableListViewAssociatedType = EasyTableListView
