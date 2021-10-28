@@ -3,6 +3,7 @@ use_frameworks!
 platform :ios, '9.0'
 
 target 'EasyBeta_Example' do
+  pod 'Easy', :path => '../Easy'
   pod 'EasyBeta', :path => '../'
 
   target 'EasyBeta_Tests' do
