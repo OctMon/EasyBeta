@@ -36,8 +36,8 @@ public extension EasyBeta {
 
 public extension EasyApp {
     
-    static func configCheckPgyer(api_key: String , shortcutUrl: String, headerImage: UIImage? = nil, delay: TimeInterval = 3, isWillEnterForegroundCheck: Bool = true) {
-        EasyCheck.configPgyerBeta(api_key: api_key, shortcutUrl: shortcutUrl, headerImage: headerImage, delay: delay, isWillEnterForegroundCheck: isWillEnterForegroundCheck)
+    static func configCheckPgyer(api_key: String , shortcutUrl: String, buildPassword: String, headerImage: UIImage? = nil, delay: TimeInterval = 3, isWillEnterForegroundCheck: Bool = true) {
+        EasyCheck.configPgyerBeta(api_key: api_key, shortcutUrl: shortcutUrl, buildPassword: buildPassword, headerImage: headerImage, delay: delay, isWillEnterForegroundCheck: isWillEnterForegroundCheck)
     }
     
     static func configTestTool() {

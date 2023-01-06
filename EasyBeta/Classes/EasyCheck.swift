@@ -21,7 +21,7 @@ public struct EasyCheck {
     
     private init() {}
     
-    static func requestPgyerBeta(api_key: String, shortcutUrl: String, headerImage: UIImage?) {
+    static func requestPgyerBeta(api_key: String, shortcutUrl: String, buildPassword: String, headerImage: UIImage?) {
         guard !isShow else { return }
         session.post(path: "apiv2/app/getByShortcut", isURLEncoding: true, parameters: ["_api_key": api_key, "buildShortcutUrl": shortcutUrl]) { (dataResponse) in
             guard dataResponse.valid else {
@@ -43,7 +43,8 @@ public struct EasyCheck {
                 isShow = false
                 if offset == 1 {
                     let buildKey = dataResponse.dataParameters["buildKey"].toStringValue
-                    guard let url = URL(string: "itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/\(buildKey)") else { return }
+                    let install = "https://www.pgyer.com/apiv2/app/install?_api_key=\(api_key)&buildKey=\(buildKey)&buildPassword=\(buildPassword)"
+                    guard let url = URL(string: install) else { return }
                     if UIApplication.shared.openURL(url) {
                         exit(EXIT_SUCCESS);
                     }
@@ -60,13 +61,13 @@ public struct EasyCheck {
 
 public extension EasyCheck {
     
-    static func configPgyerBeta(api_key: String , shortcutUrl: String, headerImage: UIImage? = nil, delay: TimeInterval = 3, isWillEnterForegroundCheck: Bool = true) {
+    static func configPgyerBeta(api_key: String , shortcutUrl: String, buildPassword: String, headerImage: UIImage? = nil, delay: TimeInterval = 3, isWillEnterForegroundCheck: Bool = true) {
         EasyApp.runInMain(delay: delay) {
-            requestPgyerBeta(api_key: api_key, shortcutUrl: shortcutUrl, headerImage: headerImage)
+            requestPgyerBeta(api_key: api_key, shortcutUrl: shortcutUrl, buildPassword: buildPassword, headerImage: headerImage)
         }
         if isWillEnterForegroundCheck {
             NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { (_) in
-                requestPgyerBeta(api_key: api_key, shortcutUrl: shortcutUrl, headerImage: headerImage)
+                requestPgyerBeta(api_key: api_key, shortcutUrl: shortcutUrl, buildPassword: buildPassword, headerImage: headerImage)
             }
         }
     }

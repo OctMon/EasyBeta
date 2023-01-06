@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #if BETA
         // 调试工具初始化
         app.configTestTool()
-        app.configCheckPgyer(api_key: "", shortcutUrl: "")
+        app.configCheckPgyer(api_key: "", shortcutUrl: "", buildPassword: "")
 #endif
         return true
     }
