@@ -7,6 +7,15 @@
 //
 
 import UIKit
+import Easy
+import EasyBeta
+
+typealias easy = Easy
+typealias app = easy.App
+typealias log = easy.Log
+typealias alert = easy.Alert
+typealias actionSheet = easy.ActionSheet
+typealias global = easy.Global
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,8 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+#if BETA
+        // 调试工具初始化
+        app.configTestTool()
+        app.configCheckPgyer(api_key: "", shortcutUrl: "")
+#endif
         return true
     }
 
