@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'OctMon' => 'octmon@qq.com' }
-  s.source           = { :git => 'https://github.com/OctMon/EasyBeta.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/OctMon/EasyBeta.git', :tag => s.version }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
@@ -33,9 +33,8 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'EasyBeta/Classes/*'
   
-  s.dependency 'Easy/Core'
-  s.dependency 'Easy/Session'
-  s.dependency 'FLEX', '~> 4.4.1' # https://github.com/Flipboard/FLEX
+  s.dependency 'Easy/Session', '~> 2.9.0' # https://github.com/OctMon/Easy
+  s.dependency 'FLEX', '~> 4.6.1' # https://github.com/Flipboard/FLEX
   s.dependency 'GDPerformanceView-Swift', '~> 2.1.1' #https://github.com/dani-gavrilov/GDPerformanceView-Swift
   s.dependency 'OOMDetector', '~> 1.3' # https://github.com/Tencent/OOMDetector
   s.xcconfig = { 'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => '$(inherited) BETA' }
