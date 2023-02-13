@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'EasyBeta/Classes/*'
   
-  s.dependency 'Easy/Session', '~> 2.9.0' # https://github.com/OctMon/Easy
+  s.dependency 'Easy/Session', '~> 2.9.1' # https://github.com/OctMon/Easy
   s.dependency 'FLEX', '~> 4.6.1' # https://github.com/Flipboard/FLEX
   s.dependency 'GDPerformanceView-Swift', '~> 2.1.1' #https://github.com/dani-gavrilov/GDPerformanceView-Swift
   s.dependency 'OOMDetector', '~> 1.3' # https://github.com/Tencent/OOMDetector
